@@ -1,32 +1,3 @@
-// const iconElement = document.querySelector(".weather-icon");
-// const tempElement = document.querySelector(".temperature-value p");
-// const tempElementMax = document.querySelector(".temperature-value-max p");
-// const tempElementMin = document.querySelector(".temperature-value-min p");
-// const descElement = document.querySelector(".temperature-description p");
-// const locationElement = document.querySelector(".location p");
-// const notificationElement = document.querySelector(".notification");
-
-// var questions = document.querySelector("#questions");
-// var answers = document.querySelector("#answers");
-
-
-
-
-
-// var readline = require('readline-sync');
-
-// function storing(questions) {
-//     done = true
-//     while (done === true) {
-//         input_q = readline.question("What questions would you like to add? ")
-//         // questions.appendChild(input_q)
-//         if (input_q === 'done') {
-//             done = false
-//         }
-//         questions.innerHTML = input_q
-//     }
-// }
-
 let questionElement = document.querySelector('#questionForm')
 let answerElement = document.querySelector('#answers')
 let questionDictionary = document.querySelector('#question_dictionary')
@@ -42,8 +13,6 @@ function createEvents(el) {
 
 let questions_list = new Object();
 let increment = 0
-
-
 
 function q_adder( question_answer, increment) {
     questions_list[increment] = question_answer
@@ -85,13 +54,9 @@ form.addEventListener('submit', (e) => {
     let div_q = document.createElement(`main`)
     div_q.classList.add('container',`questionSingle_${increment}`)
     div_q.innerText = `Question #${increment}: `
-    div_q.innerHTML += "<br>"
-    div_q.innerHTML += "<br>"
+    div_q.innerHTML += "<br><br>"
     div_q.innerHTML += `${input_q.value}`
-    div_q.innerHTML += "<br>"
-    div_q.innerHTML += "<br>"
-    div_q.innerHTML += `<div class="container-fluid" id= "response_${increment}"><form action="" id="answerForm_${increment}"> <input type='text' placeholder= 'Type in your answer. ' class='form-control' id='answering_${increment}'> </form></div>`
-    div_q.innerHTML += "<br>"
+    div_q.innerHTML += `<br><br><div class="container-fluid" id= "response_${increment}"><form action="" id="answerForm_${increment}"> <input type='text' placeholder= 'Type in your answer. ' class='form-control' id='answering_${increment}'> </form></div><br>`
     createEvents(div_q);
     questionElement.appendChild(div_q);
 
@@ -100,6 +65,4 @@ form.addEventListener('submit', (e) => {
     
     input_q.value = '';
     input_a.value = '';
-
 })
-
